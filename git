@@ -1,0 +1,23 @@
+#!/bin/bash
+
+file="$1"
+commit="$2"
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <file> <commit_message>"
+    exit 1
+fi
+
+if [ ! -f "$file" ]; then 
+    echo "Error: File '$file' not found."
+    exit 1
+fi
+
+git add "$file"
+echo "File '$file' added to the staging area."
+
+git commit -m "$commit"
+echo "Changes committed with message: '$commit'."
+
+git push
+echo "Changes pushed to remote repository."
