@@ -29,6 +29,7 @@ void swap(listint_t *a, listint_t *b)
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *i, *j;
+
 	if (!list || !*list || !(*list)->next)
 	{
 		return;
