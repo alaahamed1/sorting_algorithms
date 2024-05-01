@@ -33,6 +33,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		return;
 	}
+
 	i = (*list)->next;
 	while (i)
 	{
