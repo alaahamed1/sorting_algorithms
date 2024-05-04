@@ -1,46 +1,59 @@
 #include <stdio.h>
 #include "sort.h"
-
 /**
- * swap - function that swaps two nodes in a doubly linked list
- * @a: pointer to the first node
- * @b: pointer to the second node
+ * swap - function that swap 2 nodes in doubly-linked list
+ * @a: address of first node
+ * @b: address of second node
+ * Return: void
  */
 void swap(listint_t *a, listint_t *b)
 {
 	if (a->prev)
+	{
 		a->prev->next = b;
+	}
 	if (b->next)
+	{
 		b->next->prev = a;
-
+	}
 	a->next = b->next;
 	b->prev = a->prev;
-
 	a->prev = b;
 	b->next = a;
 }
-
 /**
- * insertion_sort_list - sorts a doubly linked list of integers
- * in ascending order using the Insertion sort algorithm
- * @list: pointer to the head of the linked list
- */
+ * insertion_sort_list - insertion_sort of doubly linked list
+ * @list: an address of pointer of head node
+ * Return: void
+*/
 void insertion_sort_list(listint_t **list)
 {
-	if (!list || !(*list) || !(*list)->next)
-		return;
-
 	listint_t *i, *j;
 
-	for (i = (*list)->next; i != NULL; i = i->next)
+	if (!list || !*list || !(*list)->next)
 	{
-		for (j = i->prev; j != NULL && j->n > i->n; j = j->prev)
+		return;
+	}
+	i = (*list)->next;
+	while (i)
+	{
+		j = i;
+		i = i->next;
+		while (j && j->prev)
 		{
-			if (j->prev == NULL)
-				*list = i;
-			swap(j, i);
-			if (j->prev == NULL)
-				print_list(*list);
+			if (j->prev->n > j->n)
+			{
+				swap(j->prev, j);
+				if (!j->prev)
+				{
+					*list = j;
+					print_list((const listint_t *)*list);
+				}
+			}
+			else
+			{
+				j = j->prev;
+			}
 		}
 	}
 }
