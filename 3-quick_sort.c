@@ -2,15 +2,15 @@
 
 /**
  * partition - partitions the array using Lomuto partition scheme
- * @array: the array to partition
- * @size: the size of the array
- * @start: the start of the partition
- * @end: the end of the partition
+ * @array: array to partition
+ * @size: size of the array
+ * @start: start of the partition
+ * @end: end of the partition
  * @print: pointer to the print function
- *
  * Return: index of the pivot element
  */
-size_t partition(int *array, size_t size, long start, long end, void (*print)(const int *, size_t))
+size_t partition(int *array, size_t size, long start, long end,
+				 void (*print)(const int *, size_t))
 {
 	long i, j;
 	int tmp, pivot;
@@ -42,15 +42,15 @@ size_t partition(int *array, size_t size, long start, long end, void (*print)(co
 }
 
 /**
- * recursive_quick_sort - sorts an array of integers in ascending order
- * using the Quick sort algorithm
- * @array: the array to sort
- * @size: the size of the array
- * @start: the start of the partition
- * @end: the end of the partition
+ * recursive_quick_sort - sorts an array of integers using Quick sort algorithm
+ * @array: array to sort
+ * @size: size of the array
+ * @start: start of the partition
+ * @end: end of the partition
  * @print: pointer to the print function
  */
-void recursive_quick_sort(int *array, size_t size, long start, long end, void (*print)(const int *, size_t))
+void recursive_quick_sort(int *array, size_t size, long start, long end,
+						  void (*print)(const int *, size_t))
 {
 	size_t pi;
 
@@ -63,10 +63,9 @@ void recursive_quick_sort(int *array, size_t size, long start, long end, void (*
 }
 
 /**
- * quick_sort - sorts an array of integers in ascending order
- * using the Quick sort algorithm
- * @array: the array to sort
- * @size: the size of the array
+ * quick_sort - sorts an array of integers using Quick sort algorithm
+ * @array: array to sort
+ * @size: size of the array
  */
 void quick_sort(int *array, size_t size)
 {
