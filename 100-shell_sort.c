@@ -2,8 +2,9 @@
 #include "sort.h"
 
 /**
- * calculate_initial_gap - Calculates the initial gap using Knuth sequence
+ * shell_sort - Calculates the initial gap using Knuth sequence
  * @size: size of the array
+ * @array:  array to be sorted
  * Return: initial gap value
  */
 void shell_sort(int *array, size_t size)
@@ -18,6 +19,7 @@ void shell_sort(int *array, size_t size)
 		{
 			int temp = array[i];
 			int j = i;
+
 			while (j >= gap && array[j - gap] > temp)
 			{
 				array[j] = array[j - gap];
