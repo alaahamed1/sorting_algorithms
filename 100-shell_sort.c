@@ -24,11 +24,5 @@ void shell_sort(int *array, size_t size)
 			}
 			array[j] = temp;
 		}
-		printf("Array after gap %d: ", gap);
-		for (int i = 0; i < size; i++)
-		{
-			printf("%d ", array[i]);
-		}
-		printf("\n");
 	}
 }
